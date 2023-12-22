@@ -1,9 +1,9 @@
-import type { ComponentProps } from 'react';
-import styled from 'styled-components';
+import type { ComponentProps } from "react";
+import styled from "styled-components";
 
-import { ReactComponent as FlaskFox } from '../assets/flask_fox.svg';
-import type { MetamaskState } from '../hooks';
-import { shouldDisplayReconnectButton } from '../utils';
+import { ReactComponent as FlaskFox } from "../assets/flask_fox.svg";
+import type { MetamaskState } from "../hooks";
+import { shouldDisplayReconnectButton } from "../utils";
 
 const Link = styled.a`
   display: flex;
@@ -63,7 +63,7 @@ const ConnectedContainer = styled.div`
 `;
 
 const ConnectedIndicator = styled.div`
-  content: ' ';
+  content: " ";
   width: 10px;
   height: 10px;
   border-radius: 50%;
@@ -88,7 +88,7 @@ export const ConnectButton = (props: ComponentProps<typeof Button>) => {
       {...props}
       type="button"
       className={`text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 me-2 mb-2 ${
-        props.disabled ? 'opacity-50' : ''
+        props.disabled ? "opacity-50" : ""
       }`}
     >
       <FlaskFox className="mr-2" />
@@ -106,6 +106,22 @@ export const ReconnectButton = (props: ComponentProps<typeof Button>) => {
     >
       <FlaskFox className="mr-2" />
       Re-install
+    </button>
+  );
+};
+
+export const AlreadyInstalledButton = (
+  props: ComponentProps<typeof Button>
+) => {
+  return (
+    <button
+      {...props}
+      type="button"
+      disabled={true}
+      className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 me-2 mb-2"
+    >
+      <FlaskFox className="mr-2" />
+      Snap correctly installed!
     </button>
   );
 };

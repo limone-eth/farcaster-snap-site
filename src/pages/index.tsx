@@ -1,23 +1,23 @@
-import { useContext } from 'react';
+import { useContext } from "react";
 
 import {
+  AlreadyInstalledButton,
   ConnectButton,
   InstallFlaskButton,
   ReconnectButton,
-} from '../components';
-import { defaultSnapOrigin } from '../config';
-import { MetamaskActions, MetaMaskContext } from '../hooks';
+} from "../components";
+import { defaultSnapOrigin } from "../config";
+import { MetamaskActions, MetaMaskContext } from "../hooks";
 import {
   connectSnap,
   getSnap,
   isLocalSnap,
   shouldDisplayReconnectButton,
-} from '../utils';
+} from "../utils";
 
 const Index = () => {
   const [state, dispatch] = useContext(MetaMaskContext);
 
-  console.log(defaultSnapOrigin);
   const isMetaMaskReady = isLocalSnap(defaultSnapOrigin)
     ? state.isFlask
     : state.snapsDetected;
@@ -36,6 +36,11 @@ const Index = () => {
       dispatch({ type: MetamaskActions.SetError, payload: error });
     }
   };
+
+  console.log(
+    shouldDisplayReconnectButton(state.installedSnap),
+    state.installedSnap
+  );
 
   return (
     <>
@@ -89,6 +94,9 @@ const Index = () => {
                         disabled={!state.installedSnap}
                       />
                     )}
+                  {isMetaMaskReady && !!state.installedSnap && (
+                    <AlreadyInstalledButton />
+                  )}
                 </div>
               </div>
             </div>

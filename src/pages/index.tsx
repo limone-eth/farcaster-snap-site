@@ -54,7 +54,7 @@ const Index = () => {
               playsInline
               className="lg:order-last rounded-xl w-full h-auto max-w-full"
             >
-              <source src="/video.mp4" type="video/mp4" />
+              <source src="video.mp4" type="video/mp4" />
             </video>
             <div className="flex flex-col justify-center space-y-4">
               <div className="space-y-2">
@@ -108,7 +108,7 @@ const Index = () => {
               <a href="https://limone.lol" target="_blank">
                 <img
                   className="rounded-full h-16 w-16 mx-auto text-center"
-                  src="/pfp.png"
+                  src="pfp.png"
                   alt="image description"
                 ></img>
                 <span className="font-bold">by limone.eth</span>
